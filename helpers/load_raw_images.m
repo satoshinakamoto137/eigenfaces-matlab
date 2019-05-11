@@ -1,4 +1,4 @@
-function [raw_image_set,image_loaded] = load_raw_images(folder_path,number_of_image,randomize)
+function [raw_image_set,image_loaded] = load_raw_images(folder_path,number_of_image,randomize,rgb)
     %raw_img_set: load raw images set (create T) from a folder path.
     % usage:  [raw_image_set,image_loaded] = load_raw_images(folder_path,number_of_image,randomize)
     %
@@ -48,7 +48,7 @@ function [raw_image_set,image_loaded] = load_raw_images(folder_path,number_of_im
     % Create T, with all images changed in vectors
     for i = 1:N
         for j = 1:M
-            raw_img = load_image(char(img_paths(i,j)),0);
+            raw_img = load_image(char(img_paths(i,j)),rgb);
             % Transform the two-dimensional array in a one-dimensional
             % vector and store it
             raw_image_set(k,:) = one_line_image(raw_img);
